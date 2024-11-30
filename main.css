@@ -1,0 +1,537 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background: #f8f8f8;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+nav .nav-links li {
+    margin: 0 20px;
+}
+
+nav .nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav .nav-links a:hover {
+    color: #ff6347; /* Tomato color */
+}
+
+.hamburger {
+    display: none;  
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.line {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+}
+
+/* Hero Section */
+.hero {
+    background: url('images/hero-bg.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.btn {
+    background-color: #ff6347;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.btn:hover {
+    background-color: #e5533d; /* Darker shade */
+}
+
+/* Menu Section */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.menu-item {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+}
+
+.menu-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Contact Form */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: auto;
+}
+
+input, textarea {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    border: none;
+    padding: 10px;
+    background: #ff6347;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #e5533d;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: white;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        background: white;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    header {
+        justify-content: space-between;
+    }
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Place it behind content */
+    opacity: 0.8; /* Optional: for a glass effect */
+}
+
+section {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+section.visible {
+    opacity: 1;
+}
+
+.menu-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+section {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.visible {
+    opacity: 1;
+}
+
+/* Specials Section */
+.specials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.special-item {
+    background: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevent overflow for child elements */
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+}
+
+.special-item img {
+    width: 100%; /* Make image responsive */
+    height: auto; /* Allow height to adjust based on the original aspect ratio */
+    transition: transform 0.3s ease; 
+    border-radius: 10px;
+    /* Smooth transition for the image */
+}
+
+.special-item:hover {
+    transform: scale(1.05); /* Scale up the entire special item */
+}
+
+.special-item:hover img {
+    transform: scale(1.1); /* Zoom in the image slightly */
+}
+
+/* Gallery Section */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    padding: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Reservation Form */
+#reservation-form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: auto;
+}
+
+#reservation-form input, 
+#reservation-form textarea {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#reservation-form button {
+    border: none;
+    padding: 10px;
+    background: #ff6347;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#reservation-form button:hover {
+    background: #e5533d;
+}
+
+/* Additional Footer Styles */
+footer .social-media {
+    margin-top: 10px;
+}
+
+footer .social-media a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #fff;
+}
+
+footer .social-media a:hover {
+    text-decoration: underline;
+}
+
+#testimonials {
+    padding: 50px 20px;
+    background: #f9f9f9; /* Light background color */
+    text-align: center;
+}
+
+.testimonial-slider {
+    position: relative; /* Positioning for prev/next buttons */
+    max-width: 800px; /* Limit maximum width */
+    margin: 0 auto; /* Center slider */
+}
+
+.testimonial {
+    display: none; /* Hide all testimonials by default */
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial.active {
+    display: block; /* Show active testimonial */
+}
+
+.prev, .next {
+    position: absolute; /* Position buttons */
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ff6347; /* Button color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background-color: #e5533d; /* Darker shade on hover */
+}
+
+.prev {
+    left: 10px; /* Positioning for previous button */
+}
+
+.next {
+    right: 10px; /* Positioning for next button */
+}
+
+/* Small screens */
+@media (max-width: 768px) {
+    .prev, .next {
+        padding: 8px 12px;
+    }
+}
+
+/* Event Section Styles */
+#events {
+    padding: 50px 20px;
+    background: #f1f8ff; /* Light background color */
+    text-align: center;
+}
+
+.event-list {
+    max-width: 800px; /* Limit maximum width */
+    margin: 0 auto; /* Center the event list */
+}
+
+.event-item {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 15px 0;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+.event-item:hover {
+    transform: scale(1.05); /* Scale up the entire event item */
+}
+
+.event-item:hover img {
+    transform: scale(1.1); /* Zoom in the image slightly */
+}
+
+/* Newsletter Section Styles */
+#newsletter {
+    padding: 50px 20px;
+    background: #e9ffe9; /* Light green background */
+    text-align: center;
+}
+
+#newsletter-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack form elements */
+}
+
+#newsletter-form input {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px; /* Fixed width */
+}
+
+#newsletter-form button {
+    padding: 10px 15px;
+    background: #ff6347; /* Button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#newsletter-form button:hover {
+    background: #e5533d; /* Darker shade on hover */
+}
+
+#customer-reviews {
+    padding: 50px 20px;
+    background: #fff8e1; /* Light orange background */
+    text-align: center;
+}
+
+#review-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#review-form input,
+#review-form textarea {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+#review-form button {
+    padding: 10px;
+    background: #ff6347; /* Button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#review-form button:hover {
+    background-color: #e5533d; /* Darker shade on hover */
+}
+
+.reviews-display {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.review-item {
+    background: white;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px auto;
+    border: 1px solid #ddd;
+}
+
+/* Special Offers Section */
+.offers-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto; /* Center the offers */
+}
+
+.offer-item {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevent overflow when zooming */
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+}
+
+.offer-item img {
+    width: 100%; /* Make image responsive */
+    height: auto; /* Allow height to adjust based on the original aspect ratio */
+    transition: transform 0.3s ease; /* Smooth transition for the image */
+}
+
+.offer-item:hover {
+    transform: scale(1.05); /* Scale up the entire offer item */
+}
+
+.offer-item:hover img {
+    transform: scale(1.1); /* Zoom in the image slightly */
+}
+
+/* Contact Us Section Styles */
+#contact {
+    padding: 50px 20px;
+    background: #fff; /* White background */
+    text-align: center;
+}
+
+.contact-info {
+    margin-bottom: 30px; /* Spacing before the form */
+    font-size: 18px; /* Larger font size for readability */
+}
+
+.contact-info p {
+    margin: 10px 0; /* Spacing between info lines */
+}
+
+/* Responsive email and phone links for better usability */
+.contact-info a {
+    color: #ff6347; /* Tomato color for links */
+    text-decoration: none; /* Remove underline */
+}
+
+.contact-info a:hover {
+    text-decoration: underline; /* Underline on hover for clarity */
+}
